@@ -4,7 +4,7 @@ import styled from "styled-components";
 function HomePage() {
   const estilosDaHomePage = { backgroundColor: "red" };
 
-  console.log(config.playlists);
+  //   console.log(config.playlists);
 
   return (
     <div style={estilosDaHomePage}>
@@ -51,6 +51,35 @@ function Header() {
 }
 
 function Timeline(propriedades) {
-  console.log("dentro do componente", propriedades);
-  return <div>{propriedades.children}</div>;
+  //   console.log("dentro do componente", propriedades.playlists);
+  const playlistNames = Object.keys(propriedades.playlists);
+  // Statement
+  // Retorno por expressão
+
+  return (
+    <div>
+      {playlistNames.map((playlistName) => {
+        const videos = propriedades.playlists[playlistName];
+        console.log(playlistName);
+        console.log(videos);
+        return (
+          <section>
+            <h2>
+              {playlistName}
+              <div>
+                {videos.map((video) => {
+                  return (
+                    <a href={video.url}>
+                      <img src={video.thumb} />
+                      <span>{video.title}</span>
+                    </a>
+                  );
+                })}
+              </div>
+            </h2>
+          </section>
+        );
+      })}
+    </div>
+  );
 }
