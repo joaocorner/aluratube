@@ -1,17 +1,23 @@
 import config from "../config.json";
 import styled from "styled-components";
+import { CSSReset } from "../src/components/CSSReset";
 
 function HomePage() {
-  const estilosDaHomePage = { backgroundColor: "red" };
+  const estilosDaHomePage = {
+    // backgroundColor: "red"
+  };
 
   //   console.log(config.playlists);
 
   return (
-    <div style={estilosDaHomePage}>
-      <Menu />
-      <Header />
-      <Timeline playlists={config.playlists}>Conteúdo</Timeline>
-    </div>
+    <>
+      <CSSReset />
+      <div style={estilosDaHomePage}>
+        <Menu />
+        <Header />
+        <Timeline playlists={config.playlists}>Conteúdo</Timeline>
+      </div>
+    </>
   );
 }
 
