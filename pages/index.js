@@ -24,14 +24,23 @@ const StyledHeader = styled.div`
     height: 80px;
     border-radius: 50%;
   }
+  .user-info {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 16px 32px;
+    gap: 16px;
+  }
 `;
 function Header() {
   return (
     <StyledHeader>
       {/* <img src="banner" /> */}
-      <img src={`https://github.com/${config.github}.png`} />
-      {config.name}
-      {config.job}
+      <section className="user-info">
+        <img src={`https://github.com/${config.github}.png`} />
+        {config.name}
+        {config.job}
+      </section>
     </StyledHeader>
   );
 }
