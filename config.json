@@ -1,5 +1,14 @@
 {
   "name": "João Eduardo",
   "job": "Front End Developer",
-  "github": "joaocorner"
+  "github": "joaocorner",
+  "playlists": {
+    "games": [
+      {
+        "title": "Algum título",
+        "url": "url",
+        "thumb": "thumbnail do vídeo"
+      }
+    ]
+  }
 }
