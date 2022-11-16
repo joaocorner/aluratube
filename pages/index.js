@@ -1,3 +1,4 @@
+import React from "react";
 import config from "../config.json";
 import styled from "styled-components";
 import { CSSReset } from "../src/components/CSSReset";
@@ -9,7 +10,7 @@ function HomePage() {
     // backgroundColor: "red"
   };
 
-  const valorDoFiltro = "Frost";
+  const [valorDoFiltro, setValorDoFiltro] = React.useState("Angular");
 
   return (
     <>
@@ -22,7 +23,10 @@ function HomePage() {
           //   backgroundColor: "red",
         }}
       >
-        <Menu />
+        <Menu
+          valorDoFiltro={valorDoFiltro}
+          setValorDoFiltro={setValorDoFiltro}
+        />
         <Header />
         {/* searchValue could be equal to valorDoFiltro */}
         <Timeline searchValue={valorDoFiltro} playlists={config.playlists}>
