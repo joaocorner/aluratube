@@ -9,7 +9,7 @@ function HomePage() {
     // backgroundColor: "red"
   };
 
-  //   console.log(config.playlists);
+  const valorDoFiltro = "Frost";
 
   return (
     <>
@@ -24,7 +24,10 @@ function HomePage() {
       >
         <Menu />
         <Header />
-        <Timeline playlists={config.playlists}>Conteúdo</Timeline>
+        {/* searchValue could be equal to valorDoFiltro */}
+        <Timeline searchValue={valorDoFiltro} playlists={config.playlists}>
+          Conteúdo
+        </Timeline>
       </div>
     </>
   );
@@ -66,7 +69,7 @@ function Header() {
   );
 }
 
-function Timeline(propriedades) {
+function Timeline({ searchValue, ...propriedades }) {
   //   console.log("dentro do componente", propriedades.playlists);
   const playlistNames = Object.keys(propriedades.playlists);
   // Statement
@@ -83,14 +86,18 @@ function Timeline(propriedades) {
             <h2>
               {playlistName}
               <div>
-                {videos.map((video) => {
-                  return (
-                    <a href={video.url}>
-                      <img src={video.thumb} />
-                      <span>{video.title}</span>
-                    </a>
-                  );
-                })}
+                {videos
+                  .filter((video) => {
+                    return video.title.includes(searchValue);
+                  })
+                  .map((video) => {
+                    return (
+                      <a href={video.url}>
+                        <img src={video.thumb} />
+                        <span>{video.title}</span>
+                      </a>
+                    );
+                  })}
               </div>
             </h2>
           </section>
