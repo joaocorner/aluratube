@@ -34,4 +34,11 @@ const StyledSearch = styled.div`
   }
 `;
 
-export default function Search() {}
+export default function Search() {
+  return (
+    <StyledSearch>
+      <input type="text" />
+      <button>🔍</button>
+    </StyledSearch>
+  );
+}
