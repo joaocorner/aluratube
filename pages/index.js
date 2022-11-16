@@ -92,7 +92,9 @@ function Timeline({ searchValue, ...propriedades }) {
               <div>
                 {videos
                   .filter((video) => {
-                    return video.title.includes(searchValue);
+                    const titleNormalized = video.title.toLowerCase();
+                    const searchValueNormalized = searchValue.toLowerCase();
+                    return titleNormalized.includes(searchValue);
                   })
                   .map((video) => {
                     return (
