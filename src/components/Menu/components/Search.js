@@ -35,9 +35,16 @@ const StyledSearch = styled.div`
 `;
 
 export default function Search() {
+  const [valorDaBusca, setValorDaBusca] = React.useState("Frost");
+  console.log("valorDaBusca", valorDaBusca);
   return (
     <StyledSearch>
-      <input type="text" />
+      <input
+        type="text"
+        onChange={(e) => {
+          setValorDaBusca(e.target.value);
+        }}
+      />
       <button>🔍</button>
     </StyledSearch>
   );
