@@ -10,7 +10,7 @@ function HomePage() {
     // backgroundColor: "red"
   };
 
-  const [valorDoFiltro, setValorDoFiltro] = React.useState("Angular");
+  const [valorDoFiltro, setValorDoFiltro] = React.useState("");
 
   return (
     <>
@@ -50,7 +50,7 @@ const StyledHeader = styled.div`
     border-radius: 50%;
   }
   .user-info {
-    margin-top: 50px;
+    /* margin-top: 50px; */
     display: flex;
     align-items: center;
     width: 100%;
@@ -58,9 +58,19 @@ const StyledHeader = styled.div`
     gap: 16px;
   }
 `;
+
+const StyledBanner = styled.div`
+  background-color: blue;
+  background-image: url(${config.bg});
+  /* background-image: url(${config.bg}); */
+  background-image: url(${({ bg }) => bg});
+  height: 230px;
+`;
+
 function Header() {
   return (
     <StyledHeader>
+      <StyledBanner bg={config.bg} />
       {/* <img src="banner" /> */}
       <section className="user-info">
         <img src={`https://github.com/${config.github}.png`} />
