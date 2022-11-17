@@ -93,10 +93,10 @@ function Timeline({ searchValue, ...propriedades }) {
     <StyledTimeline>
       {playlistNames.map((playlistName) => {
         const videos = propriedades.playlists[playlistName];
-        console.log(playlistName);
-        console.log(videos);
+        // console.log(playlistName);
+        // console.log(videos);
         return (
-          <section>
+          <section key={playlistName}>
             <h2>
               {playlistName}
               <div>
@@ -108,7 +108,7 @@ function Timeline({ searchValue, ...propriedades }) {
                   })
                   .map((video) => {
                     return (
-                      <a href={video.url}>
+                      <a key={video.url} href={video.url}>
                         <img src={video.thumb} />
                         <span>{video.title}</span>
                       </a>
