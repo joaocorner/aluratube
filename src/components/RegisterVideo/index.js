@@ -1,9 +1,29 @@
 import React from "react";
 import { StyledRegisterVideo } from "./styles";
 
+// Custom Hook
+function useForm(propsDoForm) {
+  const [values, setValues] = React.useState(propsDoForm.initialValues);
+  return {
+    values,
+    handleChange: (e) => {
+      // console.log(e.target);
+      const value = e.target.value;
+      const name = e.target.name;
+      // console.log(e.target.name);
+      setValues({
+        ...values,
+        [name]: value,
+      });
+    },
+  };
+}
+
 const RegisterVideo = () => {
+  const formCadastro = useForm({
+    initialValues: { titulo: "Frost punk", url: "https://youtube." },
+  });
   const [formVisivel, setFormVisivel] = React.useState(true);
-  const [values, setValues] = React.useState({ titulo: "", url: "" });
 
   return (
     <StyledRegisterVideo>
@@ -14,7 +34,7 @@ const RegisterVideo = () => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            console.log(values);
+            console.log(formCadastro.values);
           }}
         >
           <div>
@@ -26,27 +46,15 @@ const RegisterVideo = () => {
             </button>
             <input
               placeholder="Título do vídeo"
-              value={values.titulo}
-              onChange={(e) => {
-                const value = e.target.value;
-                console.log(value);
-                setValues({
-                  ...values,
-                  titulo: value,
-                });
-              }}
+              name="titulo"
+              value={formCadastro.values.titulo}
+              onChange={formCadastro.handleChange}
             />
             <input
               placeholder="URL"
-              value={values.url}
-              onChange={(e) => {
-                const value = e.target.value;
-                console.log(value);
-                setValues({
-                  ...values,
-                  url: value,
-                });
-              }}
+              name="url"
+              value={formCadastro.values.url}
+              onChange={formCadastro.handleChange}
             />
             <button type="submit">Cadastrar</button>
           </div>
