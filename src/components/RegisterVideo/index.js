@@ -16,6 +16,9 @@ function useForm(propsDoForm) {
         [name]: value,
       });
     },
+    clearForm() {
+      setValues({});
+    },
   };
 }
 
@@ -36,6 +39,7 @@ const RegisterVideo = () => {
             e.preventDefault();
             console.log(formCadastro.values);
             setFormVisivel(false);
+            formCadastro.clearForm();
           }}
         >
           <div>
