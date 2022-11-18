@@ -35,6 +35,7 @@ const RegisterVideo = () => {
           onSubmit={(e) => {
             e.preventDefault();
             console.log(formCadastro.values);
+            setFormVisivel(false);
           }}
         >
           <div>
