@@ -44,6 +44,7 @@ const RegisterVideo = () => {
         >
           <div>
             <button
+              type="button"
               className="close-modal"
               onClick={() => setFormVisivel(false)}
             >
