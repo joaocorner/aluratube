@@ -11,7 +11,12 @@ const RegisterVideo = () => {
         +
       </button>
       {formVisivel && (
-        <form>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            console.log(values);
+          }}
+        >
           <div>
             <button
               className="close-modal"
