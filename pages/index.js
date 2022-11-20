@@ -11,9 +11,9 @@ function HomePage() {
   const [playlists, setPlaylists] = React.useState({}); // config.playlists
 
   React.useEffect(() => {
-    console.log("useEffect");
+    // console.log("useEffect");
     service.getAllVideos().then((dados) => {
-      console.log(dados.data);
+      // console.log(dados.data);
       // Forma imutavel
       const novasPlaylists = {};
       dados.data.forEach((video) => {
