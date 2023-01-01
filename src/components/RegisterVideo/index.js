@@ -36,8 +36,8 @@ function getThumbnail(url) {
 const RegisterVideo = () => {
   const formCadastro = useForm({
     initialValues: {
-      titulo: "Frost punk",
-      url: "https://www.youtube.com/watch?v=QsqatJxAUtk",
+      titulo: "",
+      url: "",
     },
   });
   const [formVisivel, setFormVisivel] = React.useState(false);
